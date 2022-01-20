@@ -18,9 +18,12 @@ public class CarServiceImpl implements CarService {
 
     private final CarRepository carRepository;
 
-    public Try<List<Car>> getCar(Brand brand, String model) {
-        return Try.of(() -> carRepository.findCarByBrandAndModelOrderByBrandAsc(brand, model))
-                .onFailure(throwable -> log.error(throwable.getMessage()));
+    public List<Car> getCar(Brand brand, String model) {
+        //writing some code for unit test example purpose only!
+        return Try.of(() -> model.isEmpty() ?
+                        carRepository.findCarByBrand(brand) :
+                        carRepository.findCarByBrandAndModelOrderByBrandAsc(brand, model))
+                .getOrElseThrow(ResourceNotFoundException::new);
     }
 
     public Try<List<Car>> getAllCars() {
@@ -31,4 +34,6 @@ public class CarServiceImpl implements CarService {
     public void removeCar(Brand brand, String model) {
         carRepository.delete(carRepository.findTopByBrandAndModel(brand, model).getOrElseThrow(ResourceNotFoundException::new));
     }
+
+
 }

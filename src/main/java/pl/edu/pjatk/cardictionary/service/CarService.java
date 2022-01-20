@@ -7,7 +7,7 @@ import pl.edu.pjatk.cardictionary.model.Car;
 import java.util.List;
 
 public interface CarService {
-    Try<List<Car>> getCar(Brand brand, String model);
+    List<Car>getCar(Brand brand, String model);
 
     Try<List<Car>> getAllCars();
 

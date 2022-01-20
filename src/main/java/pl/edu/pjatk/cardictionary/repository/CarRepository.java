@@ -13,4 +13,6 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     List<Car> findCarByBrandAndModelOrderByBrandAsc(Brand brand, String model);
 
     Option<Car> findTopByBrandAndModel(Brand brand, String model);
+
+    List<Car> findCarByBrand(Brand brand);
 }

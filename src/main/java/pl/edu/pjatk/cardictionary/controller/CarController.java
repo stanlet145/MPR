@@ -29,8 +29,7 @@ public class CarController {
     })
     public ResponseEntity<List<Car>> getCar(@RequestParam(name = "brand") Brand brand, @RequestParam(name = "model") String model) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(carService.getCar(brand, model)
-                        .getOrElseThrow((Supplier<RuntimeException>) RuntimeException::new));
+                .body(carService.getCar(brand, model));
     }
 
     @GetMapping("/cars")

@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class CarDictionaryApplicationTests {
     //testy jednostkowe mockito, mock mvc, testy integracyjne, przyklad mockowania repo etc. //na maila link do repozytorium
 
-
+//test
     @Test
     void contextLoads() {
     }
